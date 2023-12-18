@@ -42,3 +42,9 @@ function urlIs($value){
     $path = parse_url($_SERVER['REQUEST_URI'])['path'];
     return $path == $value;
 }
+
+function authorize($condition, $status = Response::FORBIDDEN){
+    if(!$condition){
+        abort($status);
+    }
+}
