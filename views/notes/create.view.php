@@ -1,6 +1,6 @@
-<?php require('partials/header.php'); ?>
-<?php require('partials/nav.php'); ?>
-<?php require('partials/banner.php'); ?>
+<?php require base_path('views/partials/header.php'); ?>
+<?php require base_path('views/partials/nav.php'); ?>
+<?php require base_path('views/partials/banner.php'); ?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -11,7 +11,14 @@
                         <div class="col-span-full">
                             <label for="body" class="block text-sm font-medium leading-6 text-gray-900">Note Description: </label>
                             <div class="mt-2">
-                                <textarea id="body" name="body" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                <textarea id="body" name="body" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required><?php echo $_POST['body']??'';?></textarea>
+
+                                <?php if(!empty($errors) && isset($errors['body'])): ?>
+                                    <p class="mt-3 text-red-400"><?php echo $errors['body']; ?></p>
+                                <?php endif; ?>
+                                <?php if(!empty($success) && isset($success['body'])): ?>
+                                    <p class="mt-3 text-green-600"><?php echo $success['body']; ?></p>
+                                <?php endif; ?>
                             </div>
                             <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
                         </div>
@@ -26,4 +33,4 @@
     </div>
 </main>
 
-<?php require('partials/footer.php'); ?>
+<?php require base_path('views/partials/footer.php'); ?>

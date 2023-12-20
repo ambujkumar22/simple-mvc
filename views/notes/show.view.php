@@ -4,7 +4,10 @@
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <p>Hello, welcome to about page</p>
+        <p class="mb-5">
+            <a href="<?= BASE_PATH; ?>notes" class="text-blue-500 hover:underline">Go back...</a>
+        </p>
+        <p><?php echo $note['body']??''; ?></p>
     </div>
 </main>
 

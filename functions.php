@@ -48,3 +48,13 @@ function authorize($condition, $status = Response::FORBIDDEN){
         abort($status);
     }
 }
+
+function base_path($path){
+    return BASE . $path;
+}
+
+function view($path, $attributes = []){
+    extract($attributes);
+
+    require base_path('views/' . $path);
+}
